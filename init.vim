@@ -5,8 +5,7 @@ packloadall
 " Load all of the helptags now, after plugins have been loaded.
 " All messages and errors will be ignored.
 silent! helptags ALL
-" Enable completion where available.
-let g:ale_completion_enabled = 1
+" autocmd vimenter * NERDTree
 map <leader>nt :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
@@ -30,6 +29,8 @@ set autowrite
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
+" Enable completion where available.
+let g:ale_completion_enabled = 1
 let g:deoplete#enable_at_startup = 1
 " shows go functions in directory by pres \gt
 au FileType go nmap <leader>gt :GoDeclsDir<cr>
@@ -37,7 +38,26 @@ au FileType go nmap <leader>gt :GoDeclsDir<cr>
 au FileType go nmap <F12> :GoDef<cr>
 " map exit for neovim terminal
 :tnoremap <Esc> <C-\><C-n>
+" set tab for yaml
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab
 
+" Set vim-go highlighting
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
+
+" Error and warning signs.
+let g:ale_sign_error = '⤫'
+let g:ale_sign_warning = '⚠'
+" Enable integration with airline.
+let g:airline#extensions#ale#enabled = 1
+let g:deoplete#sources#go#gocode_binary = '/home/vagrant/go/bin/gocode'
 
 " VIM Plug section
 call plug#begin()
@@ -51,13 +71,14 @@ Plug 'sebdah/vim-delve'
 Plug 'kien/ctrlp.vim'
 Plug 'w0rp/ale'
 Plug 'lifepillar/vim-solarized8'
-" Plug 'b4b4r07/vim-ansible-vault'
 Plug 'thiagoalmeidasa/vim-ansible-vault'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-go', { 'do': 'make'}
 else
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'zchee/deoplete-go', { 'do': 'make'}
-Plug 'b4b4r07/vim-ansible-vault'
 endif
 call plug#end()
+
