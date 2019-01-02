@@ -41,6 +41,9 @@ au FileType go nmap <F12> :GoDef<cr>
 " set tab for yaml
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab
+" set s and S for a single insert
+:nnoremap s :exec "normal i".nr2char(getchar())."\e"<CR>
+:nnoremap S :exec "normal a".nr2char(getchar())."\e"<CR>
 
 " Set vim-go highlighting
 let g:go_highlight_build_constraints = 1
