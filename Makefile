@@ -6,3 +6,5 @@ install:
 	go get -u github.com/mdempsky/gocode
 	pip3 install --user pynvim
 	$(info $(red)Launch neovim and run: nvim +PluginInstall +qall$(reset))
+update:
+	cp -r init.vim $$HOME/.config/nvim/init.vim
