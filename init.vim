@@ -17,7 +17,6 @@ map gt :tabn<CR>
 " map gT to previous tab
 map gT :tabp<CR>
 set background=dark
-colorscheme solarized8
 " set indent
 set tabstop=8 expandtab shiftwidth=4 softtabstop=4
 set smartindent
@@ -84,4 +83,4 @@ Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 endif
 call plug#end()
-
+colorscheme solarized8
