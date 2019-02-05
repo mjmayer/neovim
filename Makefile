@@ -4,7 +4,7 @@ install:
 	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	cp -r init.vim $$HOME/.config/nvim/init.vim
 	go get -u github.com/mdempsky/gocode
-	pip3 install --user pynvim
+	pip3 install --user pynvim flake8
 	$(info $(red)Launch neovim and run: nvim +PluginInstall +qall$(reset))
 update:
 	cp -r init.vim $$HOME/.config/nvim/init.vim
