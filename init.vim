@@ -61,6 +61,8 @@ let g:ale_sign_warning = '⚠'
 let g:airline#extensions#ale#enabled = 1
 let g:deoplete#sources#go#gocode_binary = '/home/vagrant/go/bin/gocode'
 
+let g:ale_linters = {'javascript': ['eslint']}
+
 " VIM Plug section
 call plug#begin()
 if has('nvim')
@@ -77,6 +79,7 @@ Plug 'thiagoalmeidasa/vim-ansible-vault'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'zchee/deoplete-jedi'
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 else
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
