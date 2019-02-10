@@ -61,7 +61,13 @@ let g:ale_sign_warning = '⚠'
 let g:airline#extensions#ale#enabled = 1
 let g:deoplete#sources#go#gocode_binary = '/home/vagrant/go/bin/gocode'
 
+" set javascript linter to use eslint
 let g:ale_linters = {'javascript': ['eslint']}
+" set javascript fixer to eslint
+let g:ale_fixers = {}
+let g:ale_fixers.javascript = ['eslint']
+" apply ale fixer on save
+let g:ale_fix_on_save = 1
 
 " VIM Plug section
 call plug#begin()
