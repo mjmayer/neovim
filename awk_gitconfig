@@ -1,6 +1,15 @@
 #! /usr/bin/awk -f
 BEGIN {
-    start_section="alias"
-    end_section="^\\["
 }
-/$0/{p=1;print;next}
+# print line if alias_section is false (default) and line does not contain [alias]
+{if(! alias_section && ! /^\[alias\]/) 
+    {print}
+ # when alias_section is true and contains a section start other than alias, set alias_section to inverse and print
+ else if( alias_section && ! /^\[alias\]/ &&  /^\[[[:alpha:]]/)
+    {alias_section = ! alias_section;print; next}
+}
+
+# when line contains [alias] set alias_section to its inverse and continue
+/^\[alias\]/ { alias_section = ! alias_section; next }
+END {
+}
