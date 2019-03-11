@@ -1,0 +1,6 @@
+#! /usr/bin/awk -f
+BEGIN {
+    start_section="alias"
+    end_section="^\\["
+}
+/$0/{p=1;print;next}

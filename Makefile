@@ -8,3 +8,6 @@ install:
 	$(info $(red)Launch neovim and run: nvim +PluginInstall +qall$(reset))
 update:
 	cp -r init.vim $$HOME/.config/nvim/init.vim
+	if ! grep -q "\[alias\]" "$$HOME/.gitconfig"; then \
+	    cat git_config >> $$HOME/.gitconfig; \
+	fi;
