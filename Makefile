@@ -10,10 +10,12 @@ update:
 	cp -r init.vim $$HOME/.config/nvim/init.vim
 	# append gitconfig alias section if it doesn't exist
 	if ! grep -q "\[alias\]" "$$HOME/.gitconfig"; then \
-	    cat git_config >> $$HOME/.gitconfig; \
+	    cat git_alias >> $$HOME/.gitconfig; \
+	fi;
 	# Update gitconfig alias section if it already exists
 	if  grep -q "\[alias\]" "$$HOME/.gitconfig"; then \
-	    awk ./awk_gitconfig > temp_gitconfig; \
-	    cat git_config >> temp_gitconfig; \
-	    cp temp_gitconfig "$$HOME/.gitconfig";
+	    ./awk_gitconfig "$$HOME/.gitconfig" > temp_gitconfig; \
+	    cat git_alias >> temp_gitconfig; \
+	    cp temp_gitconfig "$$HOME/.gitconfig"; \
+	    rm temp_gitconfig; \
 	fi;
