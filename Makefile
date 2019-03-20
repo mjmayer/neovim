@@ -7,7 +7,7 @@ install:
 	pip3 install --user pynvim flake8
 	$(info $(red)Launch neovim and run: nvim +PluginInstall +qall$(reset))
 update:
-	cp -r init.vim $$HOME/.config/nvim/init.vim
+	cp -f init.vim $$HOME/.config/nvim/init.vim
 	# append gitconfig alias section if it doesn't exist
 	if ! grep -q "\[alias\]" "$$HOME/.gitconfig"; then \
 	    cat git_alias >> $$HOME/.gitconfig; \
