@@ -24,10 +24,6 @@ set autoindent
 set splitright
 " save file automatically if :make is called
 set autowrite
-" Toggle quickfix list for vim-go
-map <C-n> :cnext<CR>
-map <C-m> :cprevious<CR>
-nnoremap <leader>a :cclose<CR>
 " Enable completion where available.
 let g:ale_completion_enabled = 1
 let g:deoplete#enable_at_startup = 1
@@ -43,6 +39,19 @@ autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab
 " set s and S for a single insert
 :nnoremap s :exec "normal i".nr2char(getchar())."\e"<CR>
 :nnoremap S :exec "normal a".nr2char(getchar())."\e"<CR>
+
+" Grepper Config
+nnoremap <leader>g :Grepper -tool git<cr>
+nnoremap <leader>G :Grepper -tool ag<cr>
+nmap gs <plug>(GrepperOperator)
+xmap gs <plug>(GrepperOperator)
+" Optional. The default behaviour should work for most users.
+let g:grepper               = {}
+let g:grepper.tools         = ['git', 'ag', 'rg']
+let g:grepper.jump          = 1
+let g:grepper.next_tool     = '<leader>g'
+let g:grepper.simple_prompt = 1
+let g:grepper.quickfix      = 0
 
 " Set vim-go highlighting
 let g:go_highlight_build_constraints = 1
@@ -87,6 +96,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'zchee/deoplete-jedi'
+Plug 'mhinz/vim-grepper'
 else
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
