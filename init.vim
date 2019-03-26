@@ -41,6 +41,7 @@ autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab
 :nnoremap S :exec "normal a".nr2char(getchar())."\e"<CR>
 
 " FZF Config
+" https://github.com/zenbro/dotfiles/blob/master/.nvimrc
 let g:fzf_nvim_statusline = 0 " disable statusline overwriting
 
 nnoremap <silent> <leader><space> :Files<CR>
