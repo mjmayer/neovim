@@ -130,6 +130,8 @@ Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'zchee/deoplete-jedi'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-dispatch'
+Plug 'radenling/vim-dispatch-neovim'
 else
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
