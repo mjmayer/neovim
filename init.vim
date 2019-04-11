@@ -27,6 +27,7 @@ set autowrite
 " Enable completion where available.
 let g:ale_completion_enabled = 1
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#go#gocode_binary='~/go/bin/gocode'
 " shows go functions in directory by pres \gt
 au FileType go nmap <leader>gt :GoDeclsDir<cr>
 " go to definition go back by C-t
@@ -100,7 +101,6 @@ let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
 " Enable integration with airline.
 let g:airline#extensions#ale#enabled = 1
-let g:deoplete#sources#go#gocode_binary = '/home/vagrant/go/bin/gocode'
 
 " set javascript linter to use eslint
 let g:ale_linters = {'javascript': ['eslint']}
@@ -117,7 +117,8 @@ if has('nvim')
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'nsf/gocode', { 'rtp': 'nvim'}
+Plug 'stamblerre/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 Plug 'tpope/vim-fugitive'
 Plug 'sebdah/vim-delve'
 Plug 'kien/ctrlp.vim'
