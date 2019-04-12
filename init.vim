@@ -45,6 +45,14 @@ autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab
 " https://github.com/zenbro/dotfiles/blob/master/.nvimrc
 let g:fzf_nvim_statusline = 0 " disable statusline overwriting
 
+function! SetPythonBinary()
+    let python3output=system('python3 --version')
+    if split(python3output)[1] < 3.6
+        let g:python3_host_prog='python3.7'
+    endif
+endfunction
+call SetPythonBinary()
+
 nnoremap <silent> <leader><space> :Files<CR>
 nnoremap <silent> <leader>a :Buffers<CR>
 nnoremap <silent> <leader>A :Windows<CR>
