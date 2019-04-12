@@ -45,9 +45,12 @@ autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab
 " https://github.com/zenbro/dotfiles/blob/master/.nvimrc
 let g:fzf_nvim_statusline = 0 " disable statusline overwriting
 
+" On systems where python3 does not run a version of python greater than
+" 3.6 set manually set the python executable
 function! SetPythonBinary()
     let python3output=system('python3 --version')
-    if split(python3output)[1] < 3.6
+    let pythonversion=str2float(split(python3output)[1])
+    if  pythonversion < 3.6
         let g:python3_host_prog='python3.7'
     endif
 endfunction
