@@ -44,6 +44,7 @@ autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab
 " FZF Config
 " https://github.com/zenbro/dotfiles/blob/master/.nvimrc
 let g:fzf_nvim_statusline = 0 " disable statusline overwriting
+let $FZF_DEFAULT_COMMAND = 'ag -g ""' "use silver searcher respects gitignore
 
 " On systems where python3 does not run a version of python greater than
 " 3.6 set manually set the python executable
