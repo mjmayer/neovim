@@ -52,7 +52,7 @@ function! SetPythonBinary()
     let python3output=system('python3 --version')
     let pythonversion=str2float(split(python3output)[1])
     if  pythonversion < 3.6
-        let g:python3_host_prog='python3.7'
+        let g:python3_host_prog='/usr/local/bin/python3.7'
     endif
 endfunction
 call SetPythonBinary()
