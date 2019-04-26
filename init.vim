@@ -120,8 +120,9 @@ let g:ale_linters = {'javascript': ['eslint']}
 let g:ale_fixers = {}
 let g:ale_fixers.javascript = ['eslint']
 " do not appy ale fixer on save
-let g:ale_fix_on_save = 0
-let g:ale_lint_on_save = 0
+let g:ale_fix_on_save = 1
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 1
 
 " VIM Plug section
 call plug#begin()
