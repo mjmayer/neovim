@@ -41,6 +41,12 @@ autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab
 :nnoremap s :exec "normal i".nr2char(getchar())."\e"<CR>
 :nnoremap S :exec "normal a".nr2char(getchar())."\e"<CR>
 
+" Yank and Paste to system clipboard
+noremap <Leader>y "*y
+noremap <Leader>p "*p
+noremap <Leader>Y "+y
+noremap <Leader>P "+p
+
 " FZF Config
 " https://github.com/zenbro/dotfiles/blob/master/.nvimrc
 let g:fzf_nvim_statusline = 0 " disable statusline overwriting
