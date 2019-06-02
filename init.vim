@@ -26,8 +26,13 @@ set splitright
 set autowrite
 " Enable completion where available.
 let g:ale_completion_enabled = 1
+" neocomplete like
+set completeopt+=noinsert
+" deoplete.nvim recommend
+set completeopt+=noselect
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#go#gocode_binary='~/go/bin/gocode'
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 " shows go functions in directory by pres \gt
 au FileType go nmap <leader>gt :GoDeclsDir<cr>
 " go to definition go back by C-t
@@ -134,18 +139,15 @@ let g:ale_lint_on_text_changed = 1
 call plug#begin()
 if has('nvim')
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'stamblerre/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-fugitive'
 Plug 'sebdah/vim-delve'
 Plug 'kien/ctrlp.vim'
 Plug 'w0rp/ale'
 Plug 'lifepillar/vim-solarized8'
 Plug 'thiagoalmeidasa/vim-ansible-vault'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'zchee/deoplete-jedi'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
