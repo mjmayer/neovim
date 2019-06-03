@@ -10,6 +10,8 @@ map <leader>nt :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" enable true color
+set termguicolors
 " enable syntax highlighting
 syntax on
 " map gt to next tab
@@ -51,6 +53,10 @@ noremap <Leader>y "*y
 noremap <Leader>p "*p
 noremap <Leader>Y "+y
 noremap <Leader>P "+p
+
+"Airline Plugin Config
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='dark'
 
 " FZF Config
 " https://github.com/zenbro/dotfiles/blob/master/.nvimrc
@@ -146,7 +152,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'sebdah/vim-delve'
 Plug 'kien/ctrlp.vim'
 Plug 'w0rp/ale'
-Plug 'lifepillar/vim-solarized8'
+Plug 'iCyMind/NeoSolarized'
 Plug 'thiagoalmeidasa/vim-ansible-vault'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'zchee/deoplete-jedi'
@@ -154,6 +160,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'radenling/vim-dispatch-neovim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 else
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
@@ -161,4 +169,4 @@ Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 endif
 call plug#end()
-colorscheme solarized8
+colorscheme NeoSolarized
